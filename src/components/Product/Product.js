@@ -1,10 +1,9 @@
 import { useStateValue } from "../../ContextAPI/StateProvider";
 import "./Product.css";
 const Product = ({ id, title, image, price, rating }) => {
+  const [{ basket }, dispatch] = useStateValue();
 
-  const [{basket}, dispatch] = useStateValue();
-
-  console.log("thus is ", basket)
+  console.log("thus is ", basket);
 
   const addToBasket = () => {
     //dispatch the item into data layer
@@ -15,11 +14,11 @@ const Product = ({ id, title, image, price, rating }) => {
         title,
         image,
         price,
-        rating
-      }
-    })
-  }
-  
+        rating,
+      },
+    });
+  };
+
   return (
     <div className="product">
       <div className="product__info">
